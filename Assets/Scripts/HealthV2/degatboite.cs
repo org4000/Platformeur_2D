@@ -7,8 +7,8 @@ public class degatboite : MonoBehaviour
 
     bool playerCollide = false;
     float timerDamage = 0;
-    [SerializeField] float timeBetweenDamage = 2;
-    PlayerHealth playerHealth;
+    [SerializeField] float timeBetweenDamage = 2.1f;
+    Player_Health Player_Health;
     float dot = 0;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class degatboite : MonoBehaviour
             timerDamage += Time.deltaTime;
             if(timerDamage >= timeBetweenDamage)
             {
-                playerHealth.TakeDamage(5);
+                Player_Health.TakeDamage(5);
                 timerDamage = 0;
             }
         }
@@ -35,7 +35,7 @@ public class degatboite : MonoBehaviour
     {
         if (collision.transform.name == "Player")
         {
-            playerHealth = collision.transform.GetComponent<PlayerHealth>();
+            Player_Health = collision.transform.GetComponent<Player_Health>();
             playerCollide = true;
             Vector3 test = collision.transform.position - gameObject.transform.position;
             test.Normalize();
