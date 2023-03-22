@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
-
+    private GameObject bullet;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +22,28 @@ public class BulletScript : MonoBehaviour
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
 
-
+        
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        
+      
 
 
     }
+
+  
+
 }

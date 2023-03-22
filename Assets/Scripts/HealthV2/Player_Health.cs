@@ -40,7 +40,12 @@ public class Player_Health : MonoBehaviour
             isInvincible = true;
             StartCoroutine(InvincibilityFlash());
             StartCoroutine(HandleInvincibilityDelay());
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
 
+
+            }
 
         }
     }
