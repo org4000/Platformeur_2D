@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     float horizontal_value;
     Vector2 ref_velocity = Vector2.zero;
 
-    float jumpForce = 12f;
+    float jumpForce = 14f;
 
     [SerializeField] float moveSpeed_horizontal = 400.0f;
     [SerializeField] bool is_jumping = false;
