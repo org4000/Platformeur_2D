@@ -3,27 +3,37 @@
 
 ////////////////////////////////////
 
-Fait:
 
--Asset custom pixel art 
--Baguette magique qui envoie un projectiles (régler la hitbox)
--Barre de score (joyaux)
--Ennemi sans IA, infligeant des dégâts au joueur
--Tilemap custom avec mes propres assets 
--Début d'un niveau avec mes assets
+Done:
+
+_Custom Assets / Tilemap
+_First Level
+_Score Bar
+
+_Health Bar on player/enemies 
+
+_Fireball Spell
+Ice Spell: 
+-First Ability - Ice Platform
+-Second Ability - Ice Wall (soon)
+
+2 enemies:
+-Goblin --> 100 HP (soon with AI)
+-Sentry --> 60 HP, Attack automatically the player, fireball spell doesn't stop bullet from Sentry, bullet destroy himself on Ice Spell Abilities and Walls, can be killed
+
+_Respawn
+
+Need:
+
+_Mana Bar
+_AI for goblin
+_Inspect Ability
+_Reforge Ability
 
 
-A faire:
 
--Rajouter une IA aux ennemis
--Barre de vie
--Barre de mana
--Projectiles qui se lancent avec un coût en mana
--Projectiles qui touche un mur disparait
--Screen de mort du joueur quand les HP tombent à 0
--
 
--Système de build
+
 
 
 
