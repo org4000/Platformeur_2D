@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player_Health : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class Player_Health : MonoBehaviour
     public float invincibilityFlashDelay = 0.2f;
 
     public BarreDeVie healthBar;
-
     [SerializeField] GameObject hitboxDMG;
+
+    public GameObject player;
+    public Transform respawnPoint;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +46,8 @@ public class Player_Health : MonoBehaviour
             StartCoroutine(HandleInvincibilityDelay());
             if (currentHealth <= 0)
             {
-                Destroy(gameObject);
+                Scene currentScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currentScene.name);
 
 
             }
@@ -71,4 +76,12 @@ public class Player_Health : MonoBehaviour
         isInvincible = false;
         Debug.Log("Coroutine2");
     }
+
+    
+       
+
+
+
+
+
 }
