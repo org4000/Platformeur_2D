@@ -32,11 +32,7 @@ public class IceSpell : MonoBehaviour
     void Update()
     {
        
-        if (IcePlatform.destroyed)
-        {
-            count = count - 1;
-
-        }
+       
 
 
          if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > _canFire) //Si le joueur appuie sur click droit et qu'il n'est pas en cooldown, alors crée une platforme de glace
