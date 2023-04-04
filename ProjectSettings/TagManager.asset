@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collectible
   - temp
+  - fireball
+  - walls
   layers:
   - Default
   - TransparentFX

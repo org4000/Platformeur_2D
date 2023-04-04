@@ -7,7 +7,7 @@ public class degatboite : MonoBehaviour
 
     bool playerCollide = false;
     float timerDamage = 0;
-    [SerializeField] float timeBetweenDamage = 2.1f;
+    [SerializeField] float timeBetweenDamage = 2.0f;
     Player_Health Player_Health;
     float dot = 0;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class degatboite : MonoBehaviour
             timerDamage += Time.deltaTime;
             if(timerDamage >= timeBetweenDamage)
             {
-                Player_Health.TakeDamage(5);
+                Player_Health.TakeDamage(20);
                 timerDamage = 0;
             }
         }

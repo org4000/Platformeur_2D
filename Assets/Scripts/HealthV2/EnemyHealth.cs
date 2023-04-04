@@ -32,16 +32,18 @@ public class EnemyHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    private void OnTriggerEnter2D(Collider2D Player)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if(Player.transform.name == "Player")
+        if (collision.gameObject.tag == "fireball")
         {
-            TakeDamage(25);
+            TakeDamage(20);
             StartCoroutine(ShowBar());
-           
         }
+        
     }
+
+
+  
     private IEnumerator ShowBar()
     {
         HEALTHBAR.SetActive(true);

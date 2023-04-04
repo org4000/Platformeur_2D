@@ -10,6 +10,13 @@ public class Player : MonoBehaviour
     float horizontal_value;
     Vector2 ref_velocity = Vector2.zero;
 
+    
+    //public weapon weapon;
+
+    //Vector2 moveDirection;
+    //Vector2 mousePosition;
+
+
     float jumpForce = 14f;
 
     [SerializeField] float moveSpeed_horizontal = 400.0f;
@@ -30,6 +37,23 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //float moveX = Input.GetAxisRaw("Horizontal");
+        //float moveY = Input.GetAxisRaw("Vertical");
+
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    weapon.Fire();
+        //}
+
+
+        //moveDirection = new Vector2(moveX, moveY).normalized;
+        //mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+
+
+
+
         horizontal_value = Input.GetAxis("Horizontal");
 
         if(horizontal_value > 0) sr.flipX = false;
@@ -45,6 +69,12 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+
+        //Vector2 aimDirection = mousePosition - rb.position;
+        //float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+
+
+
         if (is_jumping && can_jump)
         {           
             is_jumping = false;
