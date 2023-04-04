@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
@@ -29,19 +30,28 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
-        Destroy(gameObject);
+        Destroy(bullet);
     }
 
     private void OnCollisionStay2D(Collision2D collision2D)
     {
-        Destroy(gameObject);
+        if (collision2D.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+        
     }
-
+    private void OnTriggerEnter2D(Collider2D collision2D)
+    {
+        if (collision2D.gameObject.tag =="Wall")
+        Destroy(bullet);
+    }
 
     // Update is called once per frame
     void Update()
     {
-      
+
+        
 
 
     }

@@ -57,13 +57,8 @@ public class Shooting : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision2D)
-    {
-        if (collision2D.gameObject.tag == "Wall")
-        {
-            Destroy(gameObject);
-        }
-        
-    }
+  
+
+   
 
 }
