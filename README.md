@@ -7,15 +7,18 @@
 Done:
 
 _Custom Assets / Tilemap
+
 _First Level
+
 _Score Bar
 
 _Health Bar on player/enemies 
 
-_Fireball Spell
+_Fireball Spell (Left click)
+
 Ice Spell: 
--First Ability - Ice Platform
--Second Ability - Ice Wall (soon)
+-First Ability - Ice Platform (right click for Ice Platform below the player)
+-Second Ability - Ice Wall ("A" for Left Wall & "Z" for Right Wall)
 
 2 enemies:
 -Goblin --> 100 HP (soon with AI)
@@ -32,7 +35,7 @@ _Reforge Ability
 
 
 
-
+ 
 
 
 
