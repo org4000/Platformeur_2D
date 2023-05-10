@@ -7,56 +7,32 @@ using System;
 
 public class ManaBar : MonoBehaviour
 {
-    public Mana mana;
     private Image barImage;
-
-    public void Awake()
-    {
-        barImage = transform.Find("bar").GetComponent<Image>();
-
-        mana = new Mana();
-
-    }
-
-    public void Update()
-    {
-        mana.Update();
-
-        barImage.fillAmount = mana.GetManaNormalized();
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            mana.TrySpendMana(30);
-        }
-    }
-
-    
-}
-
-
-public class Mana
-{
-    public const int MANA_MAX = 100;
 
     public float manaAmount;
     public float manaRegenAmount;
     public float amount;
 
-    
 
-    public Mana()
+    public void Awake()
     {
+        barImage = transform.Find("bar").GetComponent<Image>();
         manaAmount = 0;
         manaRegenAmount = 10f;
     }
 
-
     public void Update()
     {
+        barImage.fillAmount = GetManaNormalized();
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            TrySpendMana(30);
+        }
         manaAmount += manaRegenAmount * Time.deltaTime;
         manaAmount = Mathf.Clamp(manaAmount, 0f, MANA_MAX);
     }
-
+    public const int MANA_MAX = 100;
 
     public void TrySpendMana(int amount)
     {
@@ -71,5 +47,4 @@ public class Mana
     {
         return manaAmount / MANA_MAX;
     }
-
 }

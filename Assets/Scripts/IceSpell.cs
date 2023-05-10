@@ -9,10 +9,9 @@ public class IceSpell : MonoBehaviour
 {
     [SerializeField] private GameObject IcePlatform;
     [SerializeField] private GameObject IceWall;
+    [SerializeField] private GameObject Manabar;
 
 
-    public ManaBar MB;
-    public Mana M;
 
    
 
@@ -52,7 +51,7 @@ public class IceSpell : MonoBehaviour
         //}
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > _canFire) //Si le joueur appuie sur click droit et qu'il n'est pas en cooldown, alors crée une platforme de glace
+        if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > _canFire && Manabar.GetComponent<ManaBar>().manaAmount >= 25) //Si le joueur appuie sur click droit et qu'il n'est pas en cooldown, alors crée une platforme de glace
         {
 
             _canFire = Time.time + _fireRate;
@@ -60,14 +59,13 @@ public class IceSpell : MonoBehaviour
             count = count += +1;
 
 
-            gameObject.GetComponent<Mana>().TrySpendMana(20);
-            GetComponent<Player_Health>().TakeDamage(10);
+            Manabar.GetComponent<ManaBar>().TrySpendMana(25);
 
 
             Debug.Log("Objet créer, il y a "+count+" objets sur la scène");
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && Time.time > _canFire) //Si le joueur appuie sur A et qu'il n'est pas en cooldown, alors crée une platforme de glace
+        if (Input.GetKeyDown(KeyCode.A) && Time.time > _canFire && Manabar.GetComponent<ManaBar>().manaAmount >= 25) //Si le joueur appuie sur A et qu'il n'est pas en cooldown, alors crée une platforme de glace
         {
             
 
@@ -75,16 +73,19 @@ public class IceSpell : MonoBehaviour
             Instantiate(IceWall, transform.position + new Vector3(-1, 0, 0), Quaternion.Euler(0, 0, 90)); // Crée un gameObject Platforme sous les pieds du joueur
             count = count += +1;
             Debug.Log("Objet créer, il y a " + count + " objets sur la scène");
-            GetComponent<Player_Health>().TakeDamage(10);
-            GetComponent<Mana>().TrySpendMana(20);
+            
+            Manabar.GetComponent<ManaBar>().TrySpendMana(25);
+
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && Time.time > _canFire) //Si le joueur appuie sur Z et qu'il n'est pas en cooldown, alors crée une platforme de glace
+        if (Input.GetKeyDown(KeyCode.Z) && Time.time > _canFire && Manabar.GetComponent<ManaBar>().manaAmount >= 25) //Si le joueur appuie sur Z et qu'il n'est pas en cooldown, alors crée une platforme de glace
         {
             _canFire = Time.time + _fireRate;
             Instantiate(IceWall, transform.position + new Vector3(1, 0, 0), Quaternion.Euler(0, 0, 90)); // Crée un gameObject Platforme sous les pieds du joueur
             count = count += +1;
             Debug.Log("Objet créer, il y a " + count + " objets sur la scène");
+
+            Manabar.GetComponent<ManaBar>().TrySpendMana(25);
         }
 
 

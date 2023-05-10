@@ -12,8 +12,10 @@ public class Collectible : MonoBehaviour
             Debug.Log("Tu as récupérer le joyau!");
             GM.CollectJoyau();
             Destroy(gameObject);
+
+            
         }
     }
 
-
+    
 }
