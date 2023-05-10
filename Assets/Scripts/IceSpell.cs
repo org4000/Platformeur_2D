@@ -2,6 +2,7 @@ using Packages.Rider.Editor.UnitTesting;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.U2D.IK;
 
@@ -61,6 +62,8 @@ public class IceSpell : MonoBehaviour
 
             Manabar.GetComponent<ManaBar>().TrySpendMana(25);
 
+            
+
 
             Debug.Log("Objet créer, il y a "+count+" objets sur la scène");
         }
@@ -75,7 +78,7 @@ public class IceSpell : MonoBehaviour
             Debug.Log("Objet créer, il y a " + count + " objets sur la scène");
             
             Manabar.GetComponent<ManaBar>().TrySpendMana(25);
-
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Z) && Time.time > _canFire && Manabar.GetComponent<ManaBar>().manaAmount >= 25) //Si le joueur appuie sur Z et qu'il n'est pas en cooldown, alors crée une platforme de glace
@@ -88,10 +91,18 @@ public class IceSpell : MonoBehaviour
             Manabar.GetComponent<ManaBar>().TrySpendMana(25);
         }
 
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (Manabar.GetComponent<ManaBar>().manaAmount < 25)
+            {
+                Debug.Log("Not Enough Mana");
+            }
+        }
+        //Pas opti le "Not enough mana" car si un sort est utilisé avec 30 de mana, il restera 5 de mana mais mettera quand même (not enough mana)
 
     }
 
-   
+
 
 
 
