@@ -35,6 +35,27 @@ public class Player_Health : MonoBehaviour
         }
     }
 
+
+    public void Heal(int healAmount)
+    {
+        if (currentHealth < maxHealth)
+        {
+            currentHealth = currentHealth + healAmount;
+            healthBar.SetHealth(currentHealth);
+
+            if (currentHealth >= maxHealth)
+            {
+                currentHealth = maxHealth;
+                healthBar.SetHealth(currentHealth);
+            }
+
+        }
+
+        
+    }
+
+
+
     public void TakeDamage (int damage)
     {
         if(!isInvincible)
@@ -46,14 +67,22 @@ public class Player_Health : MonoBehaviour
             StartCoroutine(HandleInvincibilityDelay());
             if (currentHealth <= 0)
             {
-                Scene currentScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(currentScene.name);
+                //Scene currentScene = SceneManager.GetActiveScene();
+                //SceneManager.LoadScene(currentScene.name);
+                PlayerDied();
 
 
             }
 
         }
     }
+
+    private void PlayerDied()
+    {
+        LevelManager.instance.GameOver();
+        gameObject.SetActive(false);
+    }
+
 
     public IEnumerator InvincibilityFlash()
     {
