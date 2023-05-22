@@ -8,14 +8,14 @@ public class BarreDeVie : MonoBehaviour
 
     public void SetMaxHealth(int health)
     {
-        // met la vie du joueur a 100 pourcent, quand le jeu demarre le joueur a 100 pourcent de ses points de vie
+        // met la vie du joueur à 100 pourcent, quand le jeu demarre le joueur à 100 pourcent de ses points de vie
         slider.maxValue = health;
         slider.value = health;
     }
 
     public void SetHealth(int health)
     {
-        // indique le nombre de points de vie a afficher
+        // indique le nombre de points de vie à afficher
         slider.value = health;
     }
 }

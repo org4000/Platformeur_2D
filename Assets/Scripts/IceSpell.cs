@@ -1,8 +1,8 @@
-using Packages.Rider.Editor.UnitTesting;
+//using Packages.Rider.Editor.UnitTesting;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.U2D.IK;
 
@@ -27,15 +27,6 @@ public class IceSpell : MonoBehaviour
     private float _canFire = -1f;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        
-
-    }
-
-    
 
     // Update is called once per frame
     void Update()
