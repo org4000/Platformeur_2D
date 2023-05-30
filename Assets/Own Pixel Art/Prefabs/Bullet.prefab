@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2325383314204453546}
   - component: {fileID: 3862850575956638187}
   - component: {fileID: 3704539352594361417}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: fireball
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5385730354713064395}
   - component: {fileID: 5849016677600512933}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hitboxDMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
