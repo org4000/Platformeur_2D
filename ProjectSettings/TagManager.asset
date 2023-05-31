@@ -9,6 +9,8 @@ TagManager:
   - fireball
   - walls
   - mana
+  - OneWayPlatform
+  - ennemy
   layers:
   - Default
   - TransparentFX

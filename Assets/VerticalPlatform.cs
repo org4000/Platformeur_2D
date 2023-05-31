@@ -4,32 +4,71 @@ using UnityEngine;
 
 public class VerticalPlatform : MonoBehaviour
 {
-    private PlatformEffector2D effector;
-    public float waitTime;
+    private GameObject currentOneWayPlatform;
+
+    [SerializeField] private BoxCollider2D playerCollider;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        effector = GetComponent<PlatformEffector2D>(); 
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-        
-             effector.rotationalOffset = 180f;
+       if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+       {
+            if (currentOneWayPlatform != null)
+            {
+                StartCoroutine(DisableCollision());
 
-        }
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            effector.rotationalOffset = 0f;
+            }
 
 
-        }
+       }
+       
+
+
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("OneWayPlatform"))
+        {
+            currentOneWayPlatform = collision.gameObject;
+        }
+
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("OneWayPlatform"))
+        {
+            currentOneWayPlatform = null;
+        }
+
+
+
+    }
+
+    private IEnumerator DisableCollision()
+    {
+        BoxCollider2D platformCollider = currentOneWayPlatform.GetComponent<BoxCollider2D>();
+
+        Physics2D.IgnoreCollision(playerCollider, platformCollider);
+        yield return new WaitForSeconds(0.25f);
+        Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
+
+
+    }
+
+
+
+
+
 }

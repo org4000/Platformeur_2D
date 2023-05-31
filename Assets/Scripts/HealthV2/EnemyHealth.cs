@@ -43,7 +43,18 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-  
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "fireball")
+        {
+            TakeDamage(20);
+            StartCoroutine(ShowBar());
+        }
+    }
+
+
+
     private IEnumerator ShowBar()
     {
         HEALTHBAR.SetActive(true);

@@ -12,6 +12,7 @@ public class BulletScript : MonoBehaviour
     private Rigidbody2D rb;
     public float force;
     private GameObject bullet;
+    [SerializeField] GameObject MAge;
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +32,36 @@ public class BulletScript : MonoBehaviour
 
    
 
-    private void OnCollisionEnter2D(Collision2D other)
+    //private void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    if (other.gameObject != MAge)
+    //    {
+    //        Destroy(gameObject);
+
+    //    }
+
+        
+    //}
+
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        Destroy(gameObject);
-        
+        //Destroy(gameObject); Rajouter ça pour que les projectiles touches les murs mais que l'ennemi soit invincible
+        if (other.gameObject.layer == 3)
+        {
+            Destroy(gameObject);
+
+        }
+
+        if (other.gameObject.CompareTag("ennemy"))
+        { 
+            Destroy(gameObject);
+        }
+
     }
 
-    
+
+
 
 
     // Update is called once per frame
