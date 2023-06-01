@@ -11,6 +11,10 @@ TagManager:
   - mana
   - OneWayPlatform
   - ennemy
+  - camchange
+  - Cam1
+  - Cam2
+  - Camera
   layers:
   - Default
   - TransparentFX

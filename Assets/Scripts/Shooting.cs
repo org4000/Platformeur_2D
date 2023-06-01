@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
 
-    private Camera mainCam;
+    public Camera mainCam;
     private Vector3 mousePos;
     public GameObject bullet;
     public Transform bulletTransform;

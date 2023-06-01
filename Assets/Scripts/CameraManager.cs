@@ -4,19 +4,51 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] GameObject playerRef;
-    Vector3 refVelocity = Vector3.zero;
-    float smoothTime = 0.2f;
-    
-    // Start is called before the first frame update
-    void Start()
-    {       
+    public Transform player;
+    public float transitionSpeed = 5f;
+
+    private Transform currentRoom;
+
+    private void Start()
+    {
+        // Find the initial room the player is in
+        currentRoom = GetPlayerRoom();
+        if (currentRoom != null)
+            transform.position = currentRoom.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        Vector3 targetPosition = new Vector3(playerRef.transform.position.x, playerRef.transform.position.y, -10);
-        gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, targetPosition, ref refVelocity, smoothTime);
+        // Check if the player has changed rooms
+        Transform newRoom = GetPlayerRoom();
+        if (newRoom != null && newRoom != currentRoom)
+        {
+            currentRoom = newRoom;
+            StartCoroutine(MoveToRoom(currentRoom));
+        }
+    }
+
+    private Transform GetPlayerRoom()
+    {
+        // Check if the player is colliding with any rooms
+        Collider2D[] colliders = Physics2D.OverlapPointAll(player.position);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Room"))
+                return collider.transform;
+        }
+
+        return null;
+    }
+
+    private IEnumerator MoveToRoom(Transform room)
+    {
+        // Smoothly move the camera to the new room position
+        Vector3 targetPosition = new Vector3(room.position.x, room.position.y, transform.position.z);
+        while (transform.position != targetPosition)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, transitionSpeed * Time.deltaTime);
+            yield return null;
+        }
     }
 }

@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359dcdeb647553846a190a71a21a7068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
   force: 6
   MAge: {fileID: 0}
 --- !u!50 &3862850575956638187
