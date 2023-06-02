@@ -78,7 +78,7 @@ public class IceSpell : MonoBehaviour
 
                 }
 
-                if (Input.GetKeyDown(KeyCode.Z) && Time.time > _canFire && Manabar.GetComponent<ManaBar>().manaAmount >= 25) //Si le joueur appuie sur Z et qu'il n'est pas en cooldown, alors crée une platforme de glace
+                if (Input.GetKeyDown(KeyCode.E) && Time.time > _canFire && Manabar.GetComponent<ManaBar>().manaAmount >= 25) //Si le joueur appuie sur Z et qu'il n'est pas en cooldown, alors crée une platforme de glace
                 {
                     _canFire = Time.time + _fireRate;
                     Instantiate(IceWall, transform.position + new Vector3(1, 0, 0), Quaternion.Euler(0, 0, 90)); // Crée un gameObject Platforme sous les pieds du joueur

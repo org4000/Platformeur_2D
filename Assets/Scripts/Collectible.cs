@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
+    [SerializeField] private FloatSO scoreSO;
+
     public GameManager GM;
     private void OnTriggerEnter2D(Collider2D Collect)
     {

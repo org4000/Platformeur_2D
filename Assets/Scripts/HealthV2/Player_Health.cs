@@ -16,6 +16,9 @@ public class Player_Health : MonoBehaviour
     public GameObject player;
     public Transform respawnPoint;
 
+    public FloatSO Health;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class Player_Health : MonoBehaviour
         // le joueur commence avec toute sa vie
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        Health.CurrentHealth = currentHealth;
     }
 
     // Update is called once per frame
@@ -65,6 +69,7 @@ public class Player_Health : MonoBehaviour
             isInvincible = true;
             StartCoroutine(InvincibilityFlash());
             StartCoroutine(HandleInvincibilityDelay());
+            Health.CurrentHealth = currentHealth;
             if (currentHealth <= 0)
             {
                 //Scene currentScene = SceneManager.GetActiveScene();

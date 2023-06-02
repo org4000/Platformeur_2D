@@ -5,10 +5,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int maxHealth;
-    private int currentHealth;
+    public int currentHealth;
     public BarreDeVie healthBar;
     private SpriteRenderer graphics;
     [SerializeField] GameObject HEALTHBAR;
+
+    public GameObject Drop;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +26,17 @@ public class EnemyHealth : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
-            Object.Destroy(gameObject);
+            if(Drop != null)
+            {
+                Instantiate(Drop, transform.position, Quaternion.identity);
+                Object.Destroy(gameObject);
+            }
+            else
+            {
+                Object.Destroy(gameObject);
+
+            }
+
         }
     }
     public void TakeDamage(int damage)

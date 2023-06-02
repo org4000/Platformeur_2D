@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerFrag1 : MonoBehaviour
 {
     public PowerFragment PF;
+    private BoolSO BSO;
 
     private void OnTriggerEnter2D (Collider2D Collect)
     {

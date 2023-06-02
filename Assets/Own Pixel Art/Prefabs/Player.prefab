@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1ff8827d08be047a50d34a2c108d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
   bullet: {fileID: 1159527452641719572, guid: 285702c75392ba54d899d3ae2dd29c1b, type: 3}
   bulletTransform: {fileID: 7152337168529877165}
   canFire: 1
@@ -253,6 +254,7 @@ GameObject:
   - component: {fileID: 7152337170084640244}
   - component: {fileID: 7152337170084640251}
   - component: {fileID: 7152337170084640250}
+  - component: {fileID: -1237076208673630319}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -449,6 +451,7 @@ MonoBehaviour:
   hitboxDMG: {fileID: 7152337168286076381}
   player: {fileID: 7152337170084640207}
   respawnPoint: {fileID: 0}
+  Health: {fileID: 11400000, guid: 8b4a26a8f889db3409707eb5c2892d90, type: 2}
 --- !u!114 &7152337170084640244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,3 +497,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 7152337170084640241}
+--- !u!114 &-1237076208673630319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7152337170084640207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ffa0aa35b17904bb57878990c10a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

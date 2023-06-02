@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private FloatSO scoreSO;
 
     public int JoyauCollected = 0;
 
@@ -23,5 +24,10 @@ public class GameManager : MonoBehaviour
     {
         JoyauCollected--;
     }
+
+   
+
+
+
 
 }
