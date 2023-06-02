@@ -15,6 +15,7 @@ TagManager:
   - Cam1
   - Cam2
   - Camera
+  - Poussable
   layers:
   - Default
   - TransparentFX

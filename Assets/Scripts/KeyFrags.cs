@@ -13,7 +13,7 @@ public class KeyFrags : MonoBehaviour
 
     private void Update()
     {
-        KeyOutput.text = "Key Fragments: " + KeyFragCollected;
+        KeyOutput.text = "Key Fragments: " + KeyFragCollected + "/3";
 
     }
 

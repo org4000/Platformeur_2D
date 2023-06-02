@@ -15,7 +15,7 @@ public class ReforgeSpell : MonoBehaviour
         {
             if (PF.ReforgeSpell == true)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(KeyCode.R))
                 {
                     unlockDoor = true;
                     Debug.Log("Reforge Spell Casted");

@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_7to9.unity
     guid: 5f62a15250c3c8845a169248b544af1c
+  - enabled: 1
+    path: Assets/Scenes/BossBattle.unity
+    guid: ae147380ca47e3745a3dd1374beb44bb
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 413728ba14a3df14e9592acfa75d361e
   m_configObjects: {}

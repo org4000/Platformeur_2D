@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
-    Animator animController;
+    public Animator animController;
     float horizontal_value;
     Vector2 ref_velocity = Vector2.zero;
 
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
         //mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
-
+        animController.SetFloat("Speed", Mathf.Abs(horizontal_value));
 
 
         horizontal_value = Input.GetAxis("Horizontal");
@@ -64,9 +64,19 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && can_jump)
         {
             is_jumping = true;
-            animController.SetBool("Jumping", true);
+            animController.SetBool("IsJumping", true);
         }
     }
+
+    public void OnLanding()
+    {
+        animController.SetBool("IsJumping", false);
+    }
+
+
+
+
+
     void FixedUpdate()
     {
 
@@ -88,10 +98,10 @@ public class Player : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         can_jump = true;
-        animController.SetBool("Jumping", false);
+        animController.SetBool("IsJumping", false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        animController.SetBool("Jumping", false);        
+        animController.SetBool("IsJumping", false);        
     }
 } 
